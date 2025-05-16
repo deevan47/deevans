@@ -1,0 +1,192 @@
+// === 1. FILE: index.html ===
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+  </head>
+  <body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+// === 2. FILE: tailwind.config.cjs ===
+module.exports = {
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  darkMode: 'class',
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+// === 3. FILE: src/index.css ===
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// === 4. FILE: src/main.jsx ===
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { NextUIProvider } from "@nextui-org/react";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <NextUIProvider>
+      <App />
+    </NextUIProvider>
+  </React.StrictMode>
+);
+
+// === 5. FILE: src/App.jsx ===
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Certificates from "./pages/Certificates";
+import Experience from "./pages/Experience";
+import Resume from "./pages/Resume";
+import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
+import NotFound from "./pages/NotFound";
+
+export default function App() {
+  return (
+    <Router>
+      <div className="min-h-screen flex flex-col bg-white text-black dark:bg-gray-900 dark:text-white transition-colors">
+        <Navbar />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/certificates" element={<Certificates />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+// === 6. FILE: src/components/Navbar.jsx ===
+import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+export default function Navbar() {
+  const location = useLocation();
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
+  const links = ["Home", "About", "Projects", "Certificates", "Experience", "Resume", "Contact", "Blog"];
+
+  return (
+    <nav className="w-full bg-gray-100 dark:bg-gray-800 shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
+      <ul className="flex gap-4 text-sm font-medium">
+        {links.map((link) => (
+          <li key={link}>
+            <Link
+              to={`/${link.toLowerCase() === "home" ? "" : link.toLowerCase()}`}
+              className={`hover:underline transition ${
+                location.pathname === `/${link.toLowerCase()}` || (link === "Home" && location.pathname === "/") ? "text-blue-500" : ""
+              }`}
+            >
+              {link}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        className="ml-4 px-2 py-1 border rounded text-xs"
+      >
+        {darkMode ? "🌙 Dark" : "☀️ Light"}
+      </button>
+    </nav>
+  );
+}
+
+// === 7. FILE: src/components/Footer.jsx ===
+export default function Footer() {
+  return (
+    <footer className="bg-gray-100 dark:bg-gray-800 p-4 text-center text-sm">
+      <p>&copy; {new Date().getFullYear()} Deevankumar Gaddala. All rights reserved.</p>
+    </footer>
+  );
+}
+
+// === 8. Dummy Pages ===
+
+// FILE: src/pages/Home.jsx
+export default function Home() {
+  return <div className="p-8 text-center text-3xl font-bold">Welcome to My Portfolio</div>;
+}
+
+// FILE: src/pages/About.jsx
+export default function About() {
+  return <div className="p-8">This is the About page. Update it with your info.</div>;
+}
+
+// FILE: src/pages/Projects.jsx
+export default function Projects() {
+  return <div className="p-8">This is the Projects page. Showcase your projects here.</div>;
+}
+
+// FILE: src/pages/Certificates.jsx
+export default function Certificates() {
+  return <div className="p-8">This is the Certificates page. Upload your certificates here.</div>;
+}
+
+// FILE: src/pages/Experience.jsx
+export default function Experience() {
+  return <div className="p-8">This is the Experience page. Share your experience here.</div>;
+}
+
+// FILE: src/pages/Resume.jsx
+export default function Resume() {
+  return <div className="p-8">This is the Resume page. Add a download link or embed PDF.</div>;
+}
+
+// FILE: src/pages/Contact.jsx
+export default function Contact() {
+  return <div className="p-8">This is the Contact page. Add a contact form here.</div>;
+}
+
+// FILE: src/pages/Blog.jsx
+export default function Blog() {
+  return <div className="p-8">This is the Blog page. Post your thoughts or articles here.</div>;
+}
+
+// FILE: src/pages/NotFound.jsx
+export default function NotFound() {
+  return <div className="p-8 text-center text-red-500">404 - Page Not Found</div>;
+}
+
+
+
+
+/////////
+
+Home
+About
+Projects
+Certificates
+Experience
+Resume
+Contact
+Blog

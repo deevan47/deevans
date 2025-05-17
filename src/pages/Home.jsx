@@ -208,14 +208,14 @@ const Home = () => {
                   label: "YouTube",
                   color: "bg-red-600",
                   textHover: "hover:text-red-300",
-                  link: "youtube.com/@simplydeevan",
+                  link: "https://youtube.com/@simplydeevan",
                 },
                 {
                   icon: <FiInstagram />,
                   label: "Instagram",
                   color: "bg-pink-600",
                   textHover: "hover:text-pink-300",
-                  link: "instagram.com/simplydeevan",
+                  link: "https://wwwinstagram.com/simplydeevan",
                 },
               ].map((social) => (
                 <motion.a

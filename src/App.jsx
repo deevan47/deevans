@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+// App.jsx
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -10,7 +11,7 @@ import Experience from "./pages/Experience";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import { ThemeProvider } from "./components/ThemeContext"; // Import ThemeProvider
+import { ThemeProvider } from "./components/ThemeContext";
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -25,31 +26,28 @@ const ScrollToTop = () => {
 
 export default function App() {
   return (
-    <Router>
-      <ThemeProvider>  {/* Wrap your app with ThemeProvider */}
-        <div className="min-h-screen flex flex-col bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
-          <Navbar />
-          
-          {/* Main content container */}
-          <div className="flex-1">
-            <ScrollToTop />
-            <main className="max-w-7xl w-full mx-auto px-4 md:px-8 py-12">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/certificates" element={<Certificates />} />
-                <Route path="/experience" element={<Experience />} />
-                <Route path="/resume" element={<Resume />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-          </div>
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
+        <Navbar />
 
-          <Footer />
+        <div className="flex-1">
+          <ScrollToTop />
+          <main className="max-w-7xl w-full mx-auto px-4 md:px-8 py-12">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/certificates" element={<Certificates />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
         </div>
-      </ThemeProvider>
-    </Router>
+
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }

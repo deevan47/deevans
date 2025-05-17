@@ -2,7 +2,7 @@
   "name": "my-portfolio",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://deevan47.github.io/deevans",
+"homepage": "https://deevan47.github.io/deevans",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

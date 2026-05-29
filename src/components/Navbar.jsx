@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
 
 export default function Navbar() {
-  const { resetSlider } = useTheme();
+  const { resetSlider, setThemeSelected } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -47,7 +47,11 @@ export default function Navbar() {
           })}
           
           <button
-            onClick={resetSlider}
+            onClick={() => {
+              resetSlider();
+              setThemeSelected(false);
+              navigate("/");
+            }}
             title="Reset Theme Slider"
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition-colors duration-200 flex items-center justify-center focus:outline-none"
             aria-label="Reset Theme Slider"

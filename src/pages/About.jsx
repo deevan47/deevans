@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import ProfileImage from '../assets/profile.jpg'; 
+import ProfileImage from '../assets/grad.png'; 
 import resume from "../assets/Deevankumar_Gaddala.pdf";
 
 export default function About() {
@@ -41,9 +41,17 @@ return (
           <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             About Me
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
-            Hi, I'm Deevankumar Gaddala! I'm a Creative Content Creator, Video Editor, and Frontend Developer currently pursuing my B.Sc in Computer Science with a Minor in Business Analytics at Flame University, Pune. I combine my creative eye for visual aesthetics, pacing, and storytelling with a solid technical foundation in software engineering, machine learning, and interactive tools to build immersive digital experiences.
-          </p>
+          <div className="text-lg text-gray-600 dark:text-gray-300 mt-4 leading-relaxed space-y-4">
+            <p>
+              Hi, I'm <strong>Deevankumar Gaddala</strong>! I'm a Computer Science major with a Business Analytics minor, blending software engineering, data analytics, AI, VR development, and creative digital media into real-world projects and products.
+            </p>
+            <p>
+              I build and deploy full-stack applications, machine learning pipelines, interactive analytics dashboards, immersive VR experiences, and large-scale content campaigns from concept to execution. My skills span Python, SQL, React, Angular, Node.js, PostgreSQL, Power BI, Tableau, Unity, and AI-assisted workflows, with strong foundations in systems programming, backend development, and data-driven problem solving.
+            </p>
+            <p>
+              Alongside technical expertise, I am highly experienced in <strong>creative content creation</strong>, video production, storytelling, audience engagement, and social media strategy through digital marketing campaigns. By combining analytical thinking, technical execution, and creative communication, I deliver high-impact solutions across both technical and business-focused environments.
+            </p>
+          </div>
 
           <div className="mt-8 grid grid-cols-2 gap-4">
             {[

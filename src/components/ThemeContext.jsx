@@ -9,19 +9,13 @@ export const useTheme = () => useContext(ThemeContext);
 export const ThemeProvider = ({ children }) => {
   // Default theme: system-based preference or saved in localStorage
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
-  const [themeSelected, setThemeSelectedState] = useState(
-    localStorage.getItem("themeSelected") === "true"
-  );
+  const [themeSelected, setThemeSelectedState] = useState(false); // Reset to false on every fresh reload
 
   // Global persistent split slider position
-  const [sliderPos, setSliderPosState] = useState(() => {
-    const saved = localStorage.getItem("sliderPos");
-    return saved !== null ? parseFloat(saved) : 50;
-  });
+  const [sliderPos, setSliderPosState] = useState(50);
 
   const setSliderPos = (pos) => {
     setSliderPosState(pos);
-    localStorage.setItem("sliderPos", String(pos));
   };
 
   const applyTheme = (theme) => {
@@ -31,6 +25,21 @@ export const ThemeProvider = ({ children }) => {
       document.documentElement.classList.remove("dark");
     }
   };
+
+  // Sync global document theme class with slider position
+  useEffect(() => {
+    if (sliderPos === 100) {
+      // Locked fully to Dark Mode
+      document.documentElement.classList.add("dark");
+    } else if (sliderPos === 0) {
+      // Locked fully to Light Mode
+      document.documentElement.classList.remove("dark");
+    } else {
+      // Split-screen mode: Keep root html clean, so Tailwind's dark: variant 
+      // only triggers inside the bottom layer's local .dark container wrapper!
+      document.documentElement.classList.remove("dark");
+    }
+  }, [sliderPos]);
 
   useEffect(() => {
     if (theme === "system") {

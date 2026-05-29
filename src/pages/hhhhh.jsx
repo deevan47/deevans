@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { FiGithub, FiLinkedin, FiCode, FiServer, FiYoutube, FiInstagram, FiAward, FiBriefcase, FiBookOpen, FiX } from 'react-icons/fi';
-import ProfileImage from '../assets/profile.jpg';
+import ProfileImage from '../assets/grad.png';
 import Certificate1 from '../assets/cert1.jpg';
 import Certificate2 from '../assets/cert2.jpg';
 
@@ -94,19 +94,19 @@ export default function Home() {
       <div className="max-w-8xl mx-auto px-6 py-20">
         <div className="relative z-10 space-y-20">
           {/* Profile Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-2xl rounded-3xl p-10 shadow-3xl border border-gray-100/60 dark:border-gray-700/50"
           >
             <div className="flex flex-col lg:flex-row items-center gap-10">
-              <motion.div 
+              <motion.div
                 whileHover={{ rotate: 0 }}
                 className="relative flex-shrink-0"
               >
-                <img 
-                  src={ProfileImage} 
+                <img
+                  src={ProfileImage}
                   alt="Deevankumar Gaddala"
                   className="w-40 h-40 rounded-full border-1 border-white dark:border-gray-800 shadow-2xl"
                 />
@@ -122,35 +122,35 @@ export default function Home() {
                 <div className="mt-6 flex items-center justify-center lg:justify-start space-x-5">
                   <FiBookOpen className="text-purple-500 w-7 h-7" />
                   <p className="text-2xl text-gray-600 dark:text-gray-300">
-                    B.Tech Computer Science<br/>
+                    B.Tech Computer Science<br />
                     SRM University, Chennai (2021-2025)
                   </p>
                 </div>
-                
+
                 <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-5">
-                  <SocialLink 
-                    icon={<FiGithub className="w-6 h-6" />} 
-                    label="GitHub" 
-                    color="gray" 
-                    link="https://github.com/deevan7" 
+                  <SocialLink
+                    icon={<FiGithub className="w-6 h-6" />}
+                    label="GitHub"
+                    color="gray"
+                    link="https://github.com/deevan7"
                   />
-                  <SocialLink 
-                    icon={<FiLinkedin className="w-6 h-6" />} 
-                    label="LinkedIn" 
-                    color="blue" 
-                    link="https://linkedin.com/in/deevankumar-gaddala" 
+                  <SocialLink
+                    icon={<FiLinkedin className="w-6 h-6" />}
+                    label="LinkedIn"
+                    color="blue"
+                    link="https://linkedin.com/in/deevankumar-gaddala"
                   />
-                  <SocialLink 
-                    icon={<FiYoutube className="w-6 h-6" />} 
-                    label="YouTube" 
-                    color="red" 
-                    link="https://youtube.com/@simplydeevan" 
+                  <SocialLink
+                    icon={<FiYoutube className="w-6 h-6" />}
+                    label="YouTube"
+                    color="red"
+                    link="https://youtube.com/@simplydeevan"
                   />
-                  <SocialLink 
-                    icon={<FiInstagram className="w-6 h-6" />} 
-                    label="Instagram" 
-                    color="pink" 
-                    link="https://instagram.com/simplydeevan" 
+                  <SocialLink
+                    icon={<FiInstagram className="w-6 h-6" />}
+                    label="Instagram"
+                    color="pink"
+                    link="https://instagram.com/simplydeevan"
                   />
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function Home() {
           </motion.div>
 
           {/* Certificates Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -172,15 +172,15 @@ export default function Home() {
             </h2>
             <div className="grid md:grid-cols-2 gap-10">
               {certificates.map((cert, index) => (
-                <motion.div 
+                <motion.div
                   key={cert.title}
                   whileHover={{ y: -8 }}
                   transition={{ type: "spring", stiffness: 300 }}
                   className="relative overflow-hidden rounded-3xl border-2 border-gray-200/80 dark:border-gray-700/70 cursor-pointer"
                   onClick={() => setSelectedCert(cert)}
                 >
-                  <motion.img 
-                    src={cert.image} 
+                  <motion.img
+                    src={cert.image}
                     alt={cert.title}
                     className="w-full h-80 object-cover transform transition-transform duration-300 hover:scale-105"
                   />
@@ -194,7 +194,7 @@ export default function Home() {
           </motion.div>
 
           {/* Experience Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
@@ -208,7 +208,7 @@ export default function Home() {
             </h2>
             <div className="space-y-12">
               {experience.map((exp, index) => (
-                <motion.div 
+                <motion.div
                   key={exp.role}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -231,7 +231,7 @@ export default function Home() {
           </motion.div>
 
           {/* Projects Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
@@ -269,8 +269,8 @@ export default function Home() {
               className="relative max-w-6xl max-h-[90vh]"
               onClick={(e) => e.stopPropagation()}
             >
-              <img 
-                src={selectedCert.image} 
+              <img
+                src={selectedCert.image}
                 alt={selectedCert.title}
                 className="rounded-2xl shadow-3xl object-contain max-h-[80vh]"
               />
@@ -297,7 +297,7 @@ const SocialLink = ({ icon, label, color, link }) => {
   };
 
   return (
-    <motion.a 
+    <motion.a
       whileHover={{ y: -3 }}
       href={link}
       target="_blank"
@@ -311,7 +311,7 @@ const SocialLink = ({ icon, label, color, link }) => {
 };
 
 const ProjectCard = ({ project, index }) => (
-  <motion.div 
+  <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: index * 0.1 }}
@@ -330,16 +330,16 @@ const ProjectCard = ({ project, index }) => (
     <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">{project.description}</p>
     <div className="flex flex-wrap gap-3 mb-6">
       {project.tech.map((tech) => (
-        <span 
-          key={tech} 
+        <span
+          key={tech}
           className="px-4 py-1.5 text-sm bg-gray-100 dark:bg-gray-700 rounded-full font-medium"
         >
           {tech}
         </span>
       ))}
     </div>
-    <a 
-      href={project.link} 
+    <a
+      href={project.link}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center text-blue-500 hover:text-blue-600 dark:text-purple-400 dark:hover:text-purple-300 text-lg font-medium"

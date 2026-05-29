@@ -25,11 +25,13 @@ const ScrollToTop = () => {
 };
 
 function AppContent() {
-  const { theme, changeTheme, sliderPos, setSliderPos, resetSlider } = useTheme();
+  const { themeSelected, setThemeSelected, theme, changeTheme, sliderPos, setSliderPos, resetSlider } = useTheme();
   const location = useLocation();
   const [isDragging, setIsDragging] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
   const containerRef = useRef(null);
+
+  const isHome = location.pathname === "/";
 
   // Sync state to refs for global mount-registered listeners
   const isDraggingRef = useRef(false);
@@ -40,6 +42,29 @@ function AppContent() {
 
   // Bind high-performance global pointer tracking on mount (runs exactly once)
   useEffect(() => {
+    const triggerSelection = (mode, currentPos) => {
+      setIsDragging(false);
+      const targetPos = mode === "light" ? 0 : 100;
+      
+      let current = currentPos;
+      const distance = targetPos - current;
+      let step = 0;
+      const interval = setInterval(() => {
+        step += 1;
+        const nextPos = current + (distance * (step / 15));
+        setSliderPos(nextPos);
+        if (step >= 15) {
+          setSliderPos(targetPos);
+          clearInterval(interval);
+          
+          setTimeout(() => {
+            changeTheme(mode);
+            setThemeSelected(true); // Selection complete, hide split-screen onboarding
+          }, 150);
+        }
+      }, 16);
+    };
+
     const handlePointerMove = (e) => {
       if (!isDraggingRef.current) return;
       if (containerRef.current) {
@@ -47,19 +72,20 @@ function AppContent() {
         const clientX = e.clientX - rect.left;
         const percentage = Math.max(0, Math.min(100, (clientX / rect.width) * 100));
         
-        // Edge locks: Pulling fully to either side snaps to 0% (Light) or 100% (Dark)
-        let finalPercentage = percentage;
-        if (percentage < 3) finalPercentage = 0;
-        if (percentage > 97) finalPercentage = 100;
-
-        setSliderPos(finalPercentage);
-
-        // Notify context about dominance changes for general background adjustments
-        if (finalPercentage < 35) {
-          changeTheme("light");
-        } else if (finalPercentage > 65) {
-          changeTheme("dark");
+        // 10% snap lock trigger (Drag 10% away from the center 50% split):
+        // Move 10% left -> sliderPos <= 45% -> snap to full Light Mode (0%)
+        if (percentage <= 45) {
+          triggerSelection("light", percentage);
+          return;
         }
+
+        // Move 10% right -> sliderPos >= 55% -> snap to full Dark Mode (100%)
+        if (percentage >= 55) {
+          triggerSelection("dark", percentage);
+          return;
+        }
+
+        setSliderPos(percentage);
       }
     };
 
@@ -77,13 +103,39 @@ function AppContent() {
       window.removeEventListener("pointerup", handlePointerUp);
       window.removeEventListener("pointercancel", handlePointerUp);
     };
-  }, [changeTheme, setSliderPos]);
+  }, [changeTheme, setSliderPos, setThemeSelected]);
 
   const handlePointerDown = (e) => {
     e.preventDefault();
     setIsDragging(true);
     setHasInteracted(true);
   };
+
+  const showSplit = !themeSelected;
+
+  if (!showSplit) {
+    return (
+      <div className="min-h-screen flex flex-col bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
+        <Navbar />
+        <div className="flex-1">
+          <ScrollToTop />
+          <main className="max-w-7xl w-full mx-auto px-4 md:px-8 py-12">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/certificates" element={<Certificates />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   // Persistent Double-Rendered Layout: Split applies to ALL pages and routes!
   return (
@@ -154,28 +206,8 @@ function AppContent() {
           style={{ transform: `translate(-50%, -50%) scale(${isDragging ? 1.15 : 1})` }}
         >
           <span className="text-xs font-bold text-purple-600 dark:text-purple-400 select-none">
-            {isDragging ? "⚡" : "↔"}
+            ↔
           </span>
-        </div>
-      </div>
-
-      {/* 4. DYNAMIC HELP HUD */}
-      <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-30 pointer-events-none text-center">
-        <div className="bg-black/90 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 shadow-2xl flex items-center gap-4 text-white">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-500">Light</span>
-          </div>
-          <div className="text-xs text-slate-400 uppercase tracking-widest font-bold font-mono">
-            {hasInteracted ? "Slide to adjust layout split" : "Drag the center handle to split light/dark"}
-          </div>
-          <div className="text-xs px-2 py-0.5 rounded bg-purple-500/20 text-purple-400 border border-purple-500/30 font-semibold font-mono">
-            {Math.round(sliderPos)}% Split
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">Dark</span>
-            <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse" />
-          </div>
         </div>
       </div>
     </div>

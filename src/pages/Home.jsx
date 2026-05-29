@@ -30,7 +30,7 @@ import {
   SiTypescript,
   SiTensorflow,
 } from "react-icons/si";
-import ProfileImage from "../assets/aws-logo.png";
+import ProfileImage from "../assets/profile.png";
 import Certificate1 from "../assets/cert1.pdf";
 import Certificate2 from "../assets/cert2.pdf";
 import basketball from "../assets/basketball.mp4";
@@ -190,9 +190,17 @@ const Home = () => {
             <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Deevankumar Gaddala
             </h1>
-            <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
-              Creative Content Creator and Video Editor with hands-on experience in social media content production, storytelling, and digital branding. Skilled in planning, scripting, shooting, editing, and publishing short-form and long-form content across platforms like YouTube and Instagram. Combines creative execution with technical problem-solving and AI-assisted productivity workflows.
-            </p>
+            <div className="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl space-y-4 text-left">
+              <p>
+                I am a <strong>Computer Science major with a Business Analytics minor</strong>, blending software engineering, data analytics, AI, VR development, and creative digital media into real-world projects and products.
+              </p>
+              <p>
+                I build and deploy full-stack applications, machine learning pipelines, interactive analytics dashboards, immersive VR experiences, and large-scale content campaigns from concept to execution. My skills span Python, SQL, React, Angular, Node.js, PostgreSQL, Power BI, Tableau, Unity, and AI-assisted workflows, with strong foundations in systems programming, backend development, and data-driven problem solving.
+              </p>
+              <p>
+                Alongside technical expertise, I am highly experienced in <strong>creative content creation</strong>, video production, storytelling, audience engagement, and social media strategy. I combine analytical thinking, technical execution, and creative communication to deliver impactful solutions across both technical and business environments.
+              </p>
+            </div>
 
             {/* Education */}
             <motion.div
@@ -205,8 +213,6 @@ const Home = () => {
                   <span className="font-semibold text-gray-900 dark:text-white">B.Sc (Computer Science; Minor in Business Analytics)</span>
                   <br />
                   Flame University, Pune, Maharashtra • Aug 2022 – May 2026
-                  <br />
-                  <span className="text-xs text-purple-600 dark:text-purple-400 font-semibold font-mono">FY SCORE: Hamamonde</span>
                 </p>
               </div>
               <div className="flex items-start gap-3 justify-center md:justify-start">

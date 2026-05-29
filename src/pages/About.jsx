@@ -41,18 +41,18 @@ return (
           <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             About Me
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4">
-            Hi, I'm Deevankumar Gaddala as you know becasue of my Home Page already, I'm not a great expert in things but i know stuff which im doing actully and good at solving problems and started my coding journey after entering to my univeristy only  on how things work actually without touching it and even gives immediate responce and now are even more responsive to touch actually. Currently pursuing Computer Science major and a Business Analytics Minor at Flame University, Pune, India. Im a quick learner at the same time using AI for being more productive and saving time do my work.
+          <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 leading-relaxed">
+            Hi, I'm Deevankumar Gaddala! I'm a Creative Content Creator, Video Editor, and Frontend Developer currently pursuing my B.Sc in Computer Science with a Minor in Business Analytics at Flame University, Pune. I combine my creative eye for visual aesthetics, pacing, and storytelling with a solid technical foundation in software engineering, machine learning, and interactive tools to build immersive digital experiences.
           </p>
 
           <div className="mt-8 grid grid-cols-2 gap-4">
             {[
-              "3+ Years Experience in Coding",
-              "Python, C, C++",
-              "Video Editing, Desiging",
-              "UI/UX Enthusiast",
-              "Machine Learning & AI",
-              "Very Very Cyber Security Enthuastic"
+              "Creative Video Editing & Storytelling",
+              "Unity VR Environment & C# Logic",
+              "React, TypeScript & Tailwind CSS",
+              "UI/UX Design & Figma Prototyping",
+              "Machine Learning & PyTorch Pipelines",
+              "AI-Assisted Productivity Workflows"
             ].map((item, index) => (
               <div key={index} className="flex items-center">
                 <span className="mr-2 text-blue-500">▹</span>
@@ -61,16 +61,17 @@ return (
             ))}
           </div>
 
-          <h3 className="text-2xl font-semibold mt-8">Projects</h3>
-          <ul className="list-disc list-inside mt-2 text-gray-600 dark:text-gray-300">
-            <li>Developed a VR Game Simulation for acrophobia management using Unity and C#.</li>
-            <li>Created a YouTube trending Analysis tool using C++ and advanced algorithms .</li>
-            <li>Many Machine Learning Projects as well (Classification, Regression, Clustering [too]).</li>
+          <h3 className="text-2xl font-semibold mt-8 text-indigo-600 dark:text-indigo-400">Key Projects</h3>
+          <ul className="list-disc list-inside mt-2 text-gray-600 dark:text-gray-300 space-y-1">
+            <li>Developed **Acrophobic VR**, a five-level exposure therapy platform in Unity with a React/Tailwind frontend.</li>
+            <li>Created **Machine Unlearning - ERASE**, a model pipeline using ResNet18 and PyTorch.</li>
+            <li>Designed and produced social media campaigns, long-form property listings, and digital walkthroughs for luxury brands.</li>
           </ul>
 
-          <h3 className="text-2xl font-semibold mt-8">Aspirations</h3>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
-Im more intrestined into Cyber Security but at the same deveoping tools and working on real-life problems and Video Editing whenever i get some free time          </p>
+          <h3 className="text-2xl font-semibold mt-8 text-indigo-600 dark:text-indigo-400">Aspirations</h3>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+            I am highly passionate about bridging the gap between high-impact visual content creation and advanced technical implementation. Whether I am writing React code, training an ML model, or editing cinema-grade videos, I strive to solve real-world problems with reliability, speed, and beautiful design.
+          </p>
 
           {/* Resume Section */}
           <div className="prose dark:prose-invert max-w-xl mx-auto text-center py-10">

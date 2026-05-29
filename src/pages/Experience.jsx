@@ -5,37 +5,45 @@ import { SiNextdotjs, SiTailwindcss, SiReact } from "react-icons/si";
 export default function Experience() {
   const experiences = [
     { 
-      company: "Mission India",
-      role: "Community Development",
-      period: "May 2023 - July 2023",
+      company: "Regrob (Hyderabad, India)",
+      role: "Videographer – Editor",
+      period: "Jul 2025 – Aug 2025",
       achievements: [
-        "Led migration to Next.js, improving SEO by 40%",
-        "Implemented design system used by 15+ teams",
-        "Mentored 5 junior developers"
+        "Produced long-form promotional videos for Digital Marketing (CP), cinematic walkthroughs, and social media content for luxury real estate brands with a focus on audience engagement and visual storytelling.",
+        "Handled end-to-end content production including shoot planning, scripting ideas, filming, editing, and client coordination across digital platforms.",
+        "Invited back for a second engagement due to creative output, reliability, and ability to execute fast-paced production requirements."
       ],
-      tech: ["Canva", "Priemere Pro"],
+      tech: ["Adobe Premiere Pro", "After Effects", "Visual Storytelling", "Creative Workflow"],
     },
     { 
-      company: "Noel Ventures",
-      role: "Web Development Intern",
-      period: "May 2024 – July 2024",
+      company: "Regrob (Bengaluru, India)",
+      role: "Videographer",
+      period: "Jul 2024 – Aug 2024",
       achievements: [
-        "Built core dashboard features using React",
-        "Improved page load speed by 30%",
-        "Implemented CI/CD pipeline"
+        "Captured and delivered professional property videos and visual marketing assets for digital listings and promotional campaigns.",
+        "Managed client communication, shoot scheduling, and on-ground coordination while ensuring timely delivery."
       ],
-      tech: ["WordPress", "Canva", "Photoshop", "HTML", 'CSS', "Java Script"],
+      tech: ["Videography", "Wondershare Filmora", "Visual Marketing", "Scheduling"],
     },
     { 
-      company: "Regrob",
-      role: "Photography",
-      period: "July 2024 – August 2024",
+      company: "Noel Foundation (Chennai, India)",
+      role: "Web Developer",
+      period: "May 2024 – Jul 2024",
       achievements: [
-        "Built core dashboard features using React",
-        "Improved page load speed by 30%",
-        "Implemented CI/CD pipeline"
+        "Designed and built a responsive website for a non-profit organization with a focus on visual clarity, accessibility, and user-friendly content presentation.",
+        "Collaborated on layout structure, content organization, and branding decisions for a non-technical audience."
       ],
-      tech: ["Wondershare Filmora"],
+      tech: ["HTML", "CSS", "UI/UX Design", "Responsive Layouts", "Branding"],
+    },
+    { 
+      company: "Mission India (Warangal, India)",
+      role: "Community Development Intern",
+      period: "May 2023 – Jul 2023",
+      achievements: [
+        "Built and maintained a website for the organization while supporting community event planning and operational coordination.",
+        "Assisted with communication, organization, and execution of outreach activities across multiple teams."
+      ],
+      tech: ["WordPress", "Web Development", "Event Planning", "Team Collaboration"],
     }
   ];
 

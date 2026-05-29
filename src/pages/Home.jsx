@@ -25,6 +25,10 @@ import {
   SiCplusplus,
   SiPython,
   SiUnity,
+  SiFigma,
+  SiPostgresql,
+  SiTypescript,
+  SiTensorflow,
 } from "react-icons/si";
 import ProfileImage from "../assets/aws-logo.png";
 import Certificate1 from "../assets/cert1.pdf";
@@ -86,37 +90,57 @@ const Home = () => {
     },
   };
 
-  // Sample data
+  // Curated premium skills matching resume
   const skills = [
-    { name: "React/Next.js", icon: <FaReact className="text-blue-400" /> },
-  { name: "Python", icon: <SiPython className="text-orange-500" /> },
-  { name: "C", icon: <SiCplusplus className="text-blue-500" /> },
-  { name: "C++", icon: <SiCplusplus className="text-blue-700" /> },
-  { name: "Unity", icon: <SiUnity className="text-gray-700" /> },
-  { name: "Adobe Premiere Pro", icon: <SiAdobepremierepro className="text-pink-500" /> },
+    { name: "React / Next.js", icon: <FaReact className="text-blue-400" /> },
+    { name: "Python / ML", icon: <SiPython className="text-orange-500" /> },
+    { name: "C / C++", icon: <SiCplusplus className="text-blue-500" /> },
+    { name: "Unity & VR", icon: <SiUnity className="text-indigo-400" /> },
+    { name: "Premiere Pro / After Effects", icon: <SiAdobepremierepro className="text-pink-500" /> },
+    { name: "UI/UX & Figma", icon: <SiFigma className="text-purple-500" /> },
+    { name: "TypeScript / Node.js", icon: <SiTypescript className="text-blue-600" /> },
+    { name: "SQL & PostgreSQL", icon: <SiPostgresql className="text-cyan-500" /> },
+    { name: "Deep Learning / TensorFlow", icon: <SiTensorflow className="text-orange-600" /> }
   ];
 
   const experience = [
     {
-      role: "Web Developement Intern",
-      company: "Noel Ventures",
-      duration: "May 2024 - July 2024 ",
+      role: "Videographer – Editor",
+      company: "Regrob (Hyderabad, India)",
+      duration: "Jul 2025 – Aug 2025",
       points: [
-        "Desigining Web Pages",
-        "Video Editing and Poster Designing for Marketing",
-        "UI/UX for Web Pages by coordinating with Design Team",
+        "Produced long-form promotional videos for Digital Marketing (CP), cinematic walkthroughs, and social media content for luxury real estate brands with a focus on audience engagement and visual storytelling.",
+        "Handled end-to-end content production including shoot planning, scripting ideas, filming, editing, and client coordination across digital platforms.",
+        "Invited back for a second engagement due to creative output, reliability, and ability to execute fast-paced production requirements."
       ],
     },
     {
-      role: "Mission India",
-      company: "Community Development",
-      duration: "May 2023 - August 2023",
+      role: "Videographer",
+      company: "Regrob (Bengaluru, India)",
+      duration: "Jul 2024 – Aug 2024",
       points: [
-        "Participate in Community Development Activities",
-        "Children Camps",
-        "Poster Designing, Video Editing",
+        "Captured and delivered professional property videos and visual marketing assets for digital listings and promotional campaigns.",
+        "Managed client communication, shoot scheduling, and on-ground coordination while ensuring timely delivery."
       ],
     },
+    {
+      role: "Web Developer",
+      company: "Noel Foundation (Chennai, India)",
+      duration: "May 2024 – Jul 2024",
+      points: [
+        "Designed and built a responsive website for a non-profit organization with a focus on visual clarity, accessibility, and user-friendly content presentation.",
+        "Collaborated on layout structure, content organization, and branding decisions for a non-technical audience."
+      ],
+    },
+    {
+      role: "Community Development Intern",
+      company: "Mission India (Warangal, India)",
+      duration: "May 2023 – Jul 2023",
+      points: [
+        "Built and maintained a website for the organization while supporting community event planning and operational coordination.",
+        "Assisted with communication, organization, and execution of outreach activities across multiple teams."
+      ],
+    }
   ];
 
   const certificates = [
@@ -166,21 +190,33 @@ const Home = () => {
             <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Deevankumar Gaddala
             </h1>
-            <p className="mt-6 text-xl text-gray-600 dark:text-gray-300">
-
+            <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
+              Creative Content Creator and Video Editor with hands-on experience in social media content production, storytelling, and digital branding. Skilled in planning, scripting, shooting, editing, and publishing short-form and long-form content across platforms like YouTube and Instagram. Combines creative execution with technical problem-solving and AI-assisted productivity workflows.
             </p>
 
             {/* Education */}
             <motion.div
-              className="mt-4 flex items-center gap-3 justify-center md:justify-start"
+              className="mt-6 flex flex-col gap-4 justify-center md:justify-start"
               variants={itemVariants}
             >
-              <FiBookOpen className="text-purple-500" />
-              <p className="text-gray-600 dark:text-gray-400">
-                Major: Computer Science - Minor: Business Analytics
-                <br />
-                Flame University (2022 - Present)
-              </p>
+              <div className="flex items-start gap-3 justify-center md:justify-start">
+                <FiBookOpen className="text-purple-500 mt-1 shrink-0" />
+                <p className="text-gray-600 dark:text-gray-400 text-left">
+                  <span className="font-semibold text-gray-900 dark:text-white">B.Sc (Computer Science; Minor in Business Analytics)</span>
+                  <br />
+                  Flame University, Pune, Maharashtra • Aug 2022 – May 2026
+                  <br />
+                  <span className="text-xs text-purple-600 dark:text-purple-400 font-semibold font-mono">FY SCORE: Hamamonde</span>
+                </p>
+              </div>
+              <div className="flex items-start gap-3 justify-center md:justify-start">
+                <FiBookOpen className="text-blue-500 mt-1 shrink-0" />
+                <p className="text-gray-600 dark:text-gray-400 text-left">
+                  <span className="font-semibold text-gray-900 dark:text-white">PCM (Physics, Chemistry, Maths)</span>
+                  <br />
+                  Telangana State Board • Jun 2020 – Mar 2022
+                </p>
+              </div>
             </motion.div>
 
             {/* Social Links */}

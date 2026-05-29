@@ -1,33 +1,81 @@
 import { motion } from "framer-motion";
-import { FiGithub, FiCode } from "react-icons/fi";
-import { SiNextdotjs, SiStripe } from "react-icons/si";
+import { FiGithub, FiCode, FiYoutube, FiShield, FiGlobe, FiTrendingUp } from "react-icons/fi";
+import { SiNextdotjs, SiUnity, SiPython, SiPostgresql, SiAngular, SiTensorflow, SiPytorch } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
 
 export default function Projects() {
   const projects = [
     { 
-      name: 'Acrophobia Management - VR', 
-      description: 'Immersive VR exposure therapy solution for acrophobia using Unity and C#.',
-      tech: ['Unity', 'Sketchfab', 'C#'],
+      name: 'YouTube Content Strategy', 
+      description: 'Independently managed YouTube content channel focusing on documentary-style editing, cinematic storytelling, and AI-assisted performance analytics.',
+      tech: ['Premiere Pro', 'After Effects', 'YouTube Analytics', 'Content Strategy'],
+      github: 'https://github.com/deevan47',
+      demo: 'https://youtube.com/@simplydeevan',
+      icon: <FiYoutube className="w-6 h-6 text-red-500" />
+    },
+    { 
+      name: 'Acrophobic VR', 
+      description: 'An immersive Unity VR application featuring five progressive levels designed to help users work through fear of heights through controlled exposure, with Figma designs and a responsive React/Tailwind frontend.',
+      tech: ['Unity', 'C#', 'Figma', 'React', 'Tailwind CSS'],
       github: 'https://github.com/deevan47/vr3',
       demo: 'https://drive.google.com/file/d/1S-U7djU-vXmQ_6RR25EMwPF2q06vS4AN/view?usp=drive_link',
-      icon: <SiStripe className="w-6 h-6 text-purple-500" />
+      icon: <SiUnity className="w-6 h-6 text-slate-800 dark:text-slate-200" />
     },
     { 
-      name: 'Google Play Store App Analysis Dashboard', 
-      description: 'Interactive PowerBI dashboard analyzing Play Store data using Kaggle dataset.',
-      tech: ['PowerBI', 'Kaggle'],
+      name: 'J-SAFE – Child Law Guide', 
+      description: 'An accessible, responsive informational platform built in TypeScript presenting legal content and child law guides in a simplified and visually clear format for non-specialist users.',
+      tech: ['TypeScript', 'GitHub Pages', 'Content Design', 'Responsive CSS'],
+      github: 'https://github.com/deevan47',
+      demo: 'https://deevan47.github.io/jsafe',
+      icon: <FiShield className="w-6 h-6 text-emerald-500" />
+    },
+    { 
+      name: 'Multilingual Farmer Platform', 
+      description: 'A responsive agricultural platform serving forms in six regional Indian languages with real-time feedback and result handling, designed for diverse local audiences.',
+      tech: ['React', 'Node.js', 'PostgreSQL', 'UI/UX Design'],
+      github: 'https://github.com/deevan47',
+      demo: '',
+      icon: <FiGlobe className="w-6 h-6 text-blue-500" />
+    },
+    { 
+      name: 'Machine Unlearning – ERASE Model', 
+      description: 'A machine learning pipeline built to remove specific data classes from trained models without retraining, utilizing the DELETE algorithm with KL-divergence. Tested on MNIST and CIFAR-10.',
+      tech: ['Python', 'PyTorch', 'ResNet18', 'KL-Divergence'],
+      github: 'https://github.com/deevan47',
+      demo: '',
+      icon: <SiPytorch className="w-6 h-6 text-orange-500" />
+    },
+    { 
+      name: 'Project Management Tool', 
+      description: 'A complete full-stack platform featuring role-based access, milestone scheduling, and interactive progress tracking, designed and built single-handedly.',
+      tech: ['Angular', 'NestJS', 'PostgreSQL', 'TypeScript', 'REST APIs'],
+      github: 'https://github.com/deevan47',
+      demo: '',
+      icon: <SiAngular className="w-6 h-6 text-red-600" />
+    },
+    { 
+      name: 'Google Play Store Analysis Dashboard', 
+      description: 'An interactive Power BI dashboard utilizing DAX and sentiment analysis to identify key performance metrics and app monetization potential from a 10K+ row dataset.',
+      tech: ['Power BI', 'DAX', 'Sentiment Analysis', 'Kaggle'],
       github: 'https://github.com/deevan47/PlayStore-Analysis',
-      demo: 'https://bloggen.dummy.com',
-      icon: <SiNextdotjs className="w-6 h-6 text-black dark:text-white" />
+      demo: '',
+      icon: <FiTrendingUp className="w-6 h-6 text-yellow-500" />
     },
     { 
-      name: 'Fla-sh Shell (Flame Shell)', 
-      description: 'Custom-built Linux shell in C with process control and piping support.',
-      tech: ['C', 'Linux Shell', 'Process Management'],
-      github: 'https://github.com/deevan47/Terminal',
-      demo: 'https://fitness.dummy.com',
-      icon: <FaReact className="w-6 h-6 text-blue-500" />
+      name: 'Demand Forecasting & Inventory Planning', 
+      description: 'A data analysis solution using Python, Pandas, and NumPy to identify retail forecasting inefficiencies, optimize stock levels, and cut supply chain costs.',
+      tech: ['Python', 'Pandas', 'NumPy', 'Data Analysis', 'Forecasting'],
+      github: 'https://github.com/deevan47',
+      demo: '',
+      icon: <SiPython className="w-6 h-6 text-sky-500" />
+    },
+    { 
+      name: 'Denoise the Noise', 
+      description: 'A custom contrastive learning model designed to stabilize feature learning and prevent accuracy degradation under heavily corrupted MNIST image data.',
+      tech: ['Python', 'TensorFlow', 'Contrastive Learning', 'MNIST'],
+      github: 'https://github.com/deevan47',
+      demo: '',
+      icon: <SiTensorflow className="w-6 h-6 text-orange-600" />
     }
   ];
 
